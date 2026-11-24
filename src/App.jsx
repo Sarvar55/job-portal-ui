@@ -21,6 +21,7 @@ import MyJobs from "./pages/MyJobs";
 import JobApplicants from "./pages/JobApplicants";
 import Profile from "./pages/Profile";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/admin/Dashboard";
 import CompanyManagement from "./pages/admin/CompanyManagement";
 import EmployerManagement from "./pages/admin/EmployerManagement";
@@ -135,6 +136,9 @@ function App() {
 
                   {/* Contact Route */}
                   <Route path="contact" element={<Contact />} />
+
+                  {/* Catch-all: 404 */}
+                  <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
             </Router>
