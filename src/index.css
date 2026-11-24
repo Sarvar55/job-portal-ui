@@ -20,6 +20,17 @@
 
 @variant dark (.dark &);
 
+/*
+ * Tailwind v4 preflight resets buttons to `cursor: default` (v3 used `pointer`).
+ * Restore the pointer cursor for every enabled button site-wide (issue #4).
+ */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {
