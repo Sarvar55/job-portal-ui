@@ -1,4 +1,23 @@
 import { Link } from "react-router-dom";
+import Tooltip from "./Tooltip";
+
+const LEGAL_LINKS = [
+  {
+    label: "Privacy Policy",
+    summary:
+      "We only collect the details you share in your profile and applications, and never sell your personal data.",
+  },
+  {
+    label: "Terms of Service",
+    summary:
+      "By using JobPortal you agree to post accurate information and use the platform respectfully.",
+  },
+  {
+    label: "Cookie Policy",
+    summary:
+      "We use essential cookies and local storage to keep you signed in and remember your preferences, like dark mode.",
+  },
+];
 
 const Footer = () => {
   return (
@@ -141,24 +160,36 @@ const Footer = () => {
 
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-gray-400 mb-6 md:mb-0">
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Privacy Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Terms of Service</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Cookie Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
+              {LEGAL_LINKS.map(({ label, summary }) => (
+                <Tooltip
+                  key={label}
+                  content={
+                    <>
+                      <span className="block font-semibold text-white mb-1">
+                        {label}
+                      </span>
+                      {summary}
+                      <span className="block mt-2 text-gray-400 italic">
+                        Full policy coming soon.
+                      </span>
+                    </>
+                  }
+                >
+                  <button
+                    type="button"
+                    className="group relative cursor-pointer hover:text-white focus-visible:text-white focus-visible:outline-none transition-colors duration-300"
+                  >
+                    <span className="relative z-10">{label}</span>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                </Tooltip>
+              ))}
               <Link
                 to="/contact"
                 className="group relative hover:text-white transition-colors duration-300"
               >
                 <span className="relative z-10">Contact Us</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>
             <div className="text-center md:text-right">
