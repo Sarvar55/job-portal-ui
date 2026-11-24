@@ -135,7 +135,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/login"
+                  to="/post-job"
                   className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
                 >
                   <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -144,7 +144,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/login"
+                  to="/employer/jobs"
                   className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
                 >
                   <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
